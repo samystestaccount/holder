@@ -613,7 +613,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var basics = parts[0].split('/');
 
 	    holder.holderURL = url;
-
 	    var dimensions = basics[1];
 	    var dimensionData = dimensions.match(/([\d]+p?)x([\d]+p?)/);
 
@@ -622,8 +621,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    holder.fluid = dimensions.indexOf('p') !== -1;
 
 	    holder.dimensions = {
-	        width: dimensionData[1].replace('p', '%'),
-	        height: dimensionData[2].replace('p', '%')
+	        width: dimensionData[1].replace(/p/g, '%'),
+	        height: dimensionData[2].replace(/p/g, '%')
 	    };
 
 	    if (parts.length === 2) {
@@ -654,7 +653,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (options.fg) {
 	            holder.theme.fg = utils.parseColor(options.fg);
 	        }
-
 	        //todo: add automatic foreground to themes without foreground
 	        if (options.bg && !options.fg) {
 	            holder.autoFg = true;
