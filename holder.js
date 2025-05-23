@@ -1347,7 +1347,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                document.body.appendChild(svg);
 	                svg.style.visibility = 'hidden';
 	                svg.style.position = 'absolute';
-	                svg.style.top = '-100%';
+svg.style.top = '-100%';
 	                svg.style.left = '-100%';
 	                //todo: workaround for zero-dimension <svg> tag in Opera 12
 	                //svg.setAttribute('width', 0);
@@ -1367,7 +1367,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            //Unescape HTML entities to get approximately the right width
 	            var txt = DOM.newEl('textarea');
-	            txt.innerHTML = htgProps.text;
+	            txt.textContent = htgProps.text;
 	            stagingTextNode.nodeValue = txt.value;
 
 	            //Get bounding box for the whole string (total width and height)
@@ -1387,8 +1387,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var diffLength = stagingTextBBox.width - computedNoSpaceLength;
 	            var spaceWidth = Math.round(diffLength / Math.max(1, words.length - 1));
 
-	            //Get widths for every word with space only if there is more than one line
-	            var wordWidths = [];
+	            //Get widths for every word with space only if there is more than one line	            var wordWidths = [];
 	            if (lineCount > 1) {
 	                stagingTextNode.nodeValue = '';
 	                for (var i = 0; i < words.length; i++) {
