@@ -1729,17 +1729,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      obj[m[1]][m[2]] = decode(parts[1]);
 	      continue;
 	    }
-
 	    if (m = objectRegex.test(key)) {
 	      m = key.split('.');
 	      ctx = obj;
-	      
+
 	      while (m.length) {
 	        prop = m.shift();
 
 	        if (!prop.length) continue;
 
-	        if (!ctx[prop]) {
+	        if (!Object.prototype.hasOwnProperty.call(ctx, prop)) {
 	          ctx[prop] = {};
 	        } else if (ctx[prop] && typeof ctx[prop] !== 'object') {
 	          break;
@@ -1769,8 +1768,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @api public
 	 */
 
-	exports.stringify = function(obj){
-	  if (!obj) return '';
+	exports.stringify = function(obj){	  if (!obj) return '';
 	  var pairs = [];
 
 	  for (var key in obj) {
